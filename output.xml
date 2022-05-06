@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.0 on win32)" generated="20220506 11:51:59.124" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0 (Python 3.10.0 on win32)" generated="20220506 12:17:15.533" rpa="false" schemaversion="3">
 <suite id="s1" name="Abbott-Code-Challenge" source="c:\Users\natal\abbott-code-challenge\abbott-code-challenge.robot">
 <test id="s1-t1" name="First Test Cases" line="6">
 <kw name="Log" library="BuiltIn">
-<arg>Hello World</arg>
+<arg>Hello World!</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220506 11:51:59.197" level="INFO">Hello World</msg>
-<status status="PASS" starttime="20220506 11:51:59.197" endtime="20220506 11:51:59.197"/>
+<msg timestamp="20220506 12:17:15.581" level="INFO">Hello World!</msg>
+<status status="PASS" starttime="20220506 12:17:15.581" endtime="20220506 12:17:15.581"/>
 </kw>
-<status status="PASS" starttime="20220506 11:51:59.195" endtime="20220506 11:51:59.198"/>
+<status status="PASS" starttime="20220506 12:17:15.579" endtime="20220506 12:17:15.582"/>
 </test>
 <doc>Hello World Test</doc>
-<status status="PASS" starttime="20220506 11:51:59.128" endtime="20220506 11:51:59.202"/>
+<status status="PASS" starttime="20220506 12:17:15.536" endtime="20220506 12:17:15.584"/>
 </suite>
 <statistics>
 <total>
