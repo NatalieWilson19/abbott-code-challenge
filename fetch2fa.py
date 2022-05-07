@@ -4,8 +4,8 @@ import email
 # IMAP Settings
 # https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-8361e398-8af4-4e97-b147-6c6c4ac95353
 
-user = "codechallengeadc@outlook.com"
-password = "P@ssword$1234"
+#user = "codechallengeadc@outlook.com"
+#password = "P@ssword$1234"
 
 # This functions connects to the outlook server, logins, and returns the most recent email body as a string
 def get_most_recent_email(user, password):
@@ -47,18 +47,17 @@ def get_most_recent_email(user, password):
     connection.close()
     return email_body.as_string()
 
-def get_access_code(email_body):
+def get_access_code(user, password):
+    email_body = get_most_recent_email(user, password)
+
     find_string = 'Your security code is: '
 
     index = email_body.find(find_string) + len(find_string)
 
     verificationCode = int(email_body[index:index+6])
 
-    print(verificationCode)
+    return verificationCode
 
-def main():
-    email_body = get_most_recent_email(user, password)
-    get_access_code(email_body)  
-
-if __name__=="__main__":
-    main()
+#def driver(user, password):
+#   email_body = get_most_recent_email(user, password)
+#   get_access_code(email_body)  
