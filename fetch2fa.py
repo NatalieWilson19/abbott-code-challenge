@@ -47,7 +47,18 @@ def get_most_recent_email(user, password):
     connection.close()
     return email_body.as_string()
 
+def get_access_code(email_body):
+    find_string = 'Your security code is: '
 
+    index = email_body.find(find_string) + len(find_string)
 
+    verificationCode = int(email_body[index:index+6])
 
-email_body = get_most_recent_email(user, password)
+    print(verificationCode)
+
+def main():
+    email_body = get_most_recent_email(user, password)
+    get_access_code(email_body)  
+
+if __name__=="__main__":
+    main()
