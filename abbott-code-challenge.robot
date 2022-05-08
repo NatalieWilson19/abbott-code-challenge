@@ -17,7 +17,6 @@ ${outlook_password}    P@ssword$1234
 Open LibreView and Select County and Language
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
-    # Basically just need to find the name of the CSS element from inspect element
     Wait Until Page Contains Element    id:truste-consent-button    timeout=100
     Click Element    id:truste-consent-button
     Wait Until Page Contains Element   id:country-select
@@ -26,6 +25,7 @@ Open LibreView and Select County and Language
     Select From List By Label    id:language-select    ${language}
     Wait Until Page Contains Element    id:submit-button
     Click Button    id:submit-button
+Input Email and Password
     Wait Until Page Contains Element    id:loginForm-email-input
     Input Text    id:loginForm-email-input    codechallengeadc@outlook.com
     Input Password    id:loginForm-password-input    P@ssword$12
@@ -33,6 +33,7 @@ Open LibreView and Select County and Language
     Wait Until Page Contains Element    id:twoFactor-step1-next-button
     Click Element    id:twoFactor-step1-next-button
 
+Run Python Script and Input 2fa
     # Need to Sleep for a few seconds because it takes a few seconds for the email to appear
     # Otherwise, we get the second most recent access code
     Sleep    15s
@@ -43,10 +44,3 @@ Open LibreView and Select County and Language
     Click Element    id:twoFactor-step2-next-button
     Sleep    10s
     Element Should Be Visible    id:uploadCard-upload-button
-    Sleep    300s
-# Need to consicelty say WHY robot framework won't work for this part
-Run Python Script
-
-    ${2fa}=    Get Access Code    ${outlook_user}    ${outlook_password}
-    Log To Console    ${2fa}
-
