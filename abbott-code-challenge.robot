@@ -32,12 +32,21 @@ Open LibreView and Select County and Language
     Click Element    id:loginForm-submit-button
     Wait Until Page Contains Element    id:twoFactor-step1-next-button
     Click Element    id:twoFactor-step1-next-button
+
+    # Need to Sleep for a few seconds because it takes a few seconds for the email to appear
+    # Otherwise, we get the second most recent access code
+    Sleep    15s
+    ${2fa}=    Get Access Code    ${outlook_user}    ${outlook_password}
+    Log To Console    ${2fa}
+    Input Password    id:twoFactor-step2-code-input    ${2fa}
+    Sleep    5s
+    Click Element    id:twoFactor-step2-next-button
     Sleep    10s
-
-
+    Element Should Be Visible    id:uploadCard-upload-button
+    Sleep    300s
 # Need to consicelty say WHY robot framework won't work for this part
 Run Python Script
 
     ${2fa}=    Get Access Code    ${outlook_user}    ${outlook_password}
-
     Log To Console    ${2fa}
+
